@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-500;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500;
+}
+
+.heading-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2 px-4 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+.btn-gradient:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white text-blue-600 border-2 border-blue-600 font-bold py-2 px-4 rounded-full hover:bg-blue-50 transition-all duration-300;
+}
+
+.feature-icon-bg {
+  @apply relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-100 before:to-purple-100 before:rounded-full before:opacity-50 before:filter before:blur-sm;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100;
+}
+
+.glass-card {
+  @apply bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-3xl border border-gray-200 shadow-xl;
+}
+
+.neon-glow {
+  @apply relative overflow-hidden;
+}
+
+.neon-glow::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-30 filter blur-xl;
+  z-index: -1;
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: neon-glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  0% {
+    transform: translate(-60%, -60%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-40%, -40%) rotate(45deg);
+  }
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glassmorphism styles */
+.glassmorphism {
+  @apply bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border border-gray-200 shadow-xl;
+}
+
+/* Improved button styles */
+.get-started-btn {
+  @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+}
+
+.get-started-btn::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 transition-opacity duration-300 ease-in-out;
+}
+
+.get-started-btn:hover::before {
+  @apply opacity-20;
+}
+
+.get-started-btn span {
+  @apply relative z-10;
+}
+
+/* Animated underline for navigation links */
+.nav-link {
+  @apply relative;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* Subtle hover effect for cards */
+.hover-lift {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-lift:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-600;
+}
